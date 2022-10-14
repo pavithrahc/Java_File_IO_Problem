@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 public class EmployeePayRoleService {
+
+    public long countEntries(IOService fileIo) {
+       return countEntries(fileIo);
+    }
+    void write(IOService fileIo) {
+       System.out.println("Given Employee Data is : " + employeePayrollList);
+    }
+
     public enum IOService {
         CONSOLE_IO, FILE_IO, DB_IO, REST_IO
     }
@@ -15,6 +23,9 @@ public class EmployeePayRoleService {
 
     public EmployeePayRoleService(List<EmployeePayRoleData> employeePayrollList) {
         this.employeePayrollList = employeePayrollList;
+    }
+    private void write() {
+        System.out.println("Given Employee Data is : " + employeePayrollList);
     }
 
     private void readEmployeePayrollData(Scanner consoleInputReader) {
@@ -34,15 +45,12 @@ public class EmployeePayRoleService {
     }
 
     public static void main(String[] args) {
-
-        System.out.println("---------- Welcome To Employee Payroll Application ----------\n");
-        ArrayList<EmployeePayRoleService> employeePayrollList  = new ArrayList<EmployeePayRoleService>();
+        ArrayList<EmployeePayRoleData> employeePayrollList = new ArrayList<EmployeePayRoleData>();
         EmployeePayRoleService employeePayrollService = new EmployeePayRoleService(employeePayrollList);
         Scanner consoleInputReader = new Scanner(System.in);
 
         employeePayrollService.readEmployeePayrollData(consoleInputReader);
         employeePayrollService.writeEmployeePayrollData();
-
+        employeePayrollService.write();
     }
-
 }

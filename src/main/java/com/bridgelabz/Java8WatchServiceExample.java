@@ -58,7 +58,7 @@ public class Java8WatchServiceExample {
 
             if (!valid) {
 
-     dirWatchers.remove(key);
+                    dirWatchers.remove(key);
                 if (dirWatchers.isEmpty())break;
             }
         }
